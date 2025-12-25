@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视觉识别转LaTeX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button id="settingsBtn" class="settings-btn" title="设置">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6m0 6v6m0-18l-2.5 2.5M12 1l2.5 2.5M12 23l-2.5-2.5M12 23l2.5-2.5M1 12h6m6 0h6M1 12l2.5-2.5M1 12l2.5 2.5M23 12l-2.5-2.5M23 12l-2.5 2.5"></path>
+                </svg>
+            </button>
+            <h1>Vision to LaTeX</h1>
+            <p>图片识别转LaTeX工具</p>
+        </header>
+        
+        <main>
+            <section class="upload-section">
+                <h2>上传图片</h2>
+                <div class="upload-area" id="uploadArea">
+                    <p>拖拽图片到此处或点击上传</p>
+                    <input type="file" id="imageUpload" accept="image/*" hidden>
+                    <button class="btn-secondary" id="uploadBtn">选择图片</button>
+                </div>
+                <div class="image-preview" id="imagePreview"></div>
+            </section>
+            
+            <section class="result-section">
+                <h2>识别结果</h2>
+                <div class="result-container">
+                    <textarea id="latexResult" placeholder="识别结果将显示在这里..." readonly></textarea>
+                    <div class="result-actions">
+                        <button id="copyLatex" class="btn-secondary">复制LaTeX</button>
+                        <button id="downloadLatex" class="btn-secondary">下载LaTeX文件</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2025 Vision to LaTeX | 工具</p>
+        </footer>
+    </div>
+    
+    <!-- 设置弹窗 -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>API 设置</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label for="apiType">选择API类型:</label>
+                    <select id="apiType" class="btn-secondary">
+                        <option value="openai">OpenAI GPT-4 Vision</option>
+                        <option value="anthropic">Anthropic Claude 3</option>
+                        <option value="siliconflow">硅基流动 Vision</option>
+                    </select>
+                    
+                    <div id="modelSelectContainer" style="display: none;">
+                        <label for="modelSelect">选择视觉模型:</label>
+                        <select id="modelSelect" class="btn-secondary">
+                            <option value="">加载模型列表...</option>
+                        </select>
+                    </div>
+                    
+                    <label for="apiKey">视觉大模型 API 密钥:</label>
+                    <div class="api-key-input-container">
+                        <input type="password" id="apiKey" placeholder="输入您的API密钥">
+                        <button id="toggleApiKey" class="toggle-btn">👁️</button>
+                    </div>
+                    
+                    <button id="saveApiKey" class="btn-primary">保存设置</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
