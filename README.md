@@ -43,6 +43,7 @@
 - 请确保网络连接稳定以获得最佳体验
 
 ## 使用
+进入项目所在文件，然后输入下面一行代码
 ```python
 python -m http.server 8000
 ```
@@ -50,3 +51,4 @@ python -m http.server 8000
 ```
 cd "d:\App\Learning\Program\ShiBie"; python -m http.server 8000
 ```
+当前测试，发现QWEN/QWEN3-VL-32B-INSTRUCT挺好用的
