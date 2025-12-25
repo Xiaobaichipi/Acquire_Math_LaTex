@@ -41,3 +41,12 @@
 - 需要有效的API密钥才能使用识别功能
 - 图片文件大小可能受API提供商限制
 - 请确保网络连接稳定以获得最佳体验
+
+## 使用
+```python
+python -m http.server 8000
+```
+比如
+```
+cd "d:\App\Learning\Program\ShiBie"; python -m http.server 8000
+```
